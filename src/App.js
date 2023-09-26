@@ -1,41 +1,25 @@
+import {Routes,Route} from 'react-router-dom';
+import './App.css';
+import Footer from './Footer';
+import Navbar from './Navbar';
+import UserList from './UserList';
+import Home from "./Home";
 
-import { useEffect, useState } from "react";
-import Axios from "axios";
-import Table from 'react-bootstrap/Table';
-import Container from 'react-bootstrap/Container';
-
-const App = () => {
-  const [users,setUsers] =useState([]);
-  useEffect(() => {
-    Axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
-setUsers(res.data)
-    })
-  })
+function App() {
   return (
-    <Container style={{textAlign:  "center",
-    fontSize: 18
-    }}>
-      <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>S.NO</th>
-          <th>Name</th>
-          <th>UserName</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-       {users.map((user) => {
-    return<tr>
-    <td>{user.id}</td>
-    <td>{user.name}</td>
-    <td>{user.username}</td>
-    <td>{user.email}</td>
-  </tr>
-       })}
-      </tbody>
-    </Table>
-    </Container>
-  )
+    <div className="App">
+      <Navbar />
+        <Routes>
+        <Route index element={<Home />} />
+        <Route path='/Home' element={<Home/>} />
+        <Route path='/UserList' element={<UserList/>} />
+        
+        </Routes>
+
+      
+      <Footer/>
+    </div>
+  );
 }
-export default App
+
+export default App;

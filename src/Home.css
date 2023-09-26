@@ -1,0 +1,11 @@
+.background{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 99vw;
+    height: 60vh;
+    background-image:url('images/pexels-armin-rimoldi-5553050.jpg.crdownload');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+   
+}
